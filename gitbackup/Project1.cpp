@@ -16,7 +16,6 @@ int main()
 
 {
     auto now = std::chrono::system_clock::now();
-    auto t_c = std::chrono::system_clock::to_time_t(now - 24h);
     Matrices a;  Matrices b; Matrices c;
     int I = 3000; int M = 3000; int N = 3000;
     a.column = M; a.row = I; b.column = N;
@@ -33,7 +32,6 @@ int main()
         b.data[i] = new float[b.column];
     }
     a.data[1][2] = 2.3f; a.data[2][1] = 3.0f; b.data[1][2] = 2.0f; b.data[2][1] = 1.1f;
-    int Size = a.row;
     auto start = std::chrono::steady_clock::now();
     multiplication(a, b, c);
     auto end = std::chrono::steady_clock::now();
